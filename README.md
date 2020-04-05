@@ -1,8 +1,8 @@
 
 # cfts
 
-Modulo nodejs in typescript che effettua il check/creazione/parsing del Codice Fiscale italiano, l'elenco dei comuni italiani viene aggiornato [dal repo di matteocontrini](https://github.com/matteocontrini/comuni-json); buona parte della logica proviene [dal repo di lucavandro](https://github.com/lucavandro/CodiceFiscaleJS) \
-Semplice e diretto!
+Typescript nodejs module that checks/creates/parses the Italian Tax Code, the list of Italian municipalities is updated [by the matteocontrini repo](https://github.com/matteocontrini/comuni-json); much of the logic comes [from the lucavandro repo](https://github.com/lucavandro/CodiceFiscaleJS) \
+Simple and straightforward!
 
 # Intallation
 
@@ -42,14 +42,14 @@ let is_valid = cfts.check("RSSMRA72L09H501S");
 console.log(is_valid);  // true
 ```
 
-È possibile calcolare il Codice fiscale indicando anche solo alcune informazioni del luogo di nascita:
-```javascript
+It is possible to calculate the Tax Code indicating also only some information of the place of birth:
+```typescript
 let cf = cfts.stringify({
   nome: 'MARIO',
   cognome: 'ROSSI',
   sesso: 'M',
   data_nascita: '1972-07-09',
-  cap_nascita: '00118', // solo CAP
+  cap_nascita: '00118', // only CAP
 });
 console.log(cf);  // RSSMRA72L09H501S
 
@@ -64,9 +64,9 @@ let cf = cfts.stringify({
 console.log(cf);  // RSSMRA72L09H501S
 ```
 
-Funziona anche con i Codici fiscali generati su soggetti nati all'estero \
-I codici catastali esteri e i relativi nomi di nazioni sono aggiornati dal [sito istat](https://www.istat.it/it/archivio/6747)
-```javascript
+It also works with the tax codes generated on subjects born abroad \
+The foreign cadastral codes and the relative names of nations are updated from [istat website](https://www.istat.it/it/archivio/6747)
+```typescript
 let  infos  =  cfts.parse("RSSMRA72L09Z247X")
 console.log(infos);
 // {
@@ -91,7 +91,7 @@ let cf = cfts.stringify({
 console.log(cf);  // RSSMRA72L09Z112D
 ```
 
-Implementa anche la generazione degli [omocodici](https://it.wikipedia.org/wiki/Omocodia):
+It also implements the generation of [omocodes](https://it.wikipedia.org/wiki/Omocodia):
 ```typescript
 let omocodes = cfts.getOmocodes("RSSMRA72L09Z247X")
 console.log(omocodes)
