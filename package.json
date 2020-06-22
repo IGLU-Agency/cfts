@@ -1,6 +1,6 @@
 {
   "name": "@lucaiaconelli/cfts",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Typescript nodejs module that checks/creates/parses the Italian Tax Code",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

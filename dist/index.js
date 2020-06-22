@@ -9,8 +9,8 @@ var checkCodeEven = {
 var omocodeTable = ['L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V'];
 var checkCodeChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var monthCodes = ['A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'P', 'R', 'S', 'T'];
-var comuni = require('../comuni.json');
-var statiEsteri = require('../stati_esteri.json');
+exports.comuni = require('../comuni.json');
+exports.statiEsteri = require('../stati_esteri.json');
 var moment = require('moment');
 function parse(cf) {
     cf = cf.toUpperCase();
@@ -32,7 +32,7 @@ function parse(cf) {
     }
     var dataNascita = year + '-' + month.toString().padStart(2, '0') + '-' + day.toString().padStart(2, '0');
     var codiceCatastale = cf.substr(11, 4);
-    var luogoNascita = comuni.find(function (i) { return i.codiceCatastale === codiceCatastale; });
+    var luogoNascita = exports.comuni.find(function (i) { return i.codiceCatastale === codiceCatastale; });
     if (luogoNascita) {
         return {
             nome: cf.substr(3, 3),
@@ -46,7 +46,7 @@ function parse(cf) {
         };
     }
     else {
-        luogoNascita = statiEsteri.find(function (i) { return i.codiceCatastale === codiceCatastale; });
+        luogoNascita = exports.statiEsteri.find(function (i) { return i.codiceCatastale === codiceCatastale; });
         return {
             nome: cf.substr(3, 3),
             cognome: cf.substr(0, 3),
@@ -75,20 +75,20 @@ function stringify(data) {
     code += day.toString().padStart(2, '0');
     var comuneNascita = null;
     if (data.comune_nascita) {
-        comuneNascita = comuni.find(function (i) { return i.nome.toLowerCase() === data.comune_nascita.toLowerCase(); });
+        comuneNascita = exports.comuni.find(function (i) { return i.nome.toLowerCase() === data.comune_nascita.toLowerCase(); });
     }
     if (data.cap_nascita) {
-        comuneNascita = comuni.find(function (i) { return i.cap.indexOf(data.cap_nascita) > -1; });
+        comuneNascita = exports.comuni.find(function (i) { return i.cap.indexOf(data.cap_nascita) > -1; });
     }
     if (data.cod_catastale_nascita) {
-        comuneNascita = comuni.find(function (i) { return i.codiceCatastale.toLowerCase() === data.cod_catastale_nascita.toLowerCase(); });
+        comuneNascita = exports.comuni.find(function (i) { return i.codiceCatastale.toLowerCase() === data.cod_catastale_nascita.toLowerCase(); });
     }
     if (!comuneNascita) {
         if (data.cod_catastale_nascita) {
-            comuneNascita = statiEsteri.find(function (i) { return i.codiceCatastale.toLowerCase() === data.cod_catastale_nascita.toLowerCase(); });
+            comuneNascita = exports.statiEsteri.find(function (i) { return i.codiceCatastale.toLowerCase() === data.cod_catastale_nascita.toLowerCase(); });
         }
         if (data.comune_nascita) {
-            comuneNascita = statiEsteri.find(function (i) { return i.nome.toLowerCase() === data.comune_nascita.toLowerCase(); });
+            comuneNascita = exports.statiEsteri.find(function (i) { return i.nome.toLowerCase() === data.comune_nascita.toLowerCase(); });
         }
     }
     if (!comuneNascita) {

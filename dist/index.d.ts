@@ -1,3 +1,5 @@
+export declare const comuni: any;
+export declare const statiEsteri: any;
 export declare function parse(cf: any): false | {
     nome: any;
     cognome: any;

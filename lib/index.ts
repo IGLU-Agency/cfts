@@ -10,8 +10,8 @@ const omocodeTable: any = ['L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'U', 'V']
 const checkCodeChars: any = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 const monthCodes: any = ['A', 'B', 'C', 'D', 'E', 'H', 'L', 'M', 'P', 'R', 'S', 'T']
 
-const comuni: any = require('../comuni.json')
-const statiEsteri: any = require('../stati_esteri.json')
+export const comuni: any = require('../comuni.json')
+export const statiEsteri: any = require('../stati_esteri.json')
 var moment = require('moment');
 
 export function parse(cf: any) {
