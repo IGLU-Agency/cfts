@@ -1,4 +1,3 @@
-
 # cfts
 
 Typescript nodejs module that checks/creates/parses the Italian Tax Code, the list of Italian municipalities is updated [by the matteocontrini repo](https://github.com/matteocontrini/comuni-json); much of the logic comes [from the lucavandro repo](https://github.com/lucavandro/CodiceFiscaleJS) \

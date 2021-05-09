@@ -1,6 +1,6 @@
 {
   "name": "@lucaiaconelli/cfts",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Typescript nodejs module that checks/creates/parses the Italian Tax Code",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -28,9 +28,8 @@
   },
   "homepage": "https://github.com/lucaiaconelli/cfts#readme",
   "dependencies": {
-    "@types/node": "^13.11.0",
-    "moment": "^2.24.0",
-    "typescript": "latest"
+    "@types/node": "^15.0.2",
+    "moment": "^2.29.1"
   },
   "directories": {
     "lib": "lib"
